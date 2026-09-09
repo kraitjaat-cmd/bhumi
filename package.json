@@ -1,0 +1,20 @@
+{
+  "name": "bhumiai",
+  "version": "1.0.0",
+  "description": "BhumiAI - Highly authentic conversational AI modeling Bhumika Tanwar's personality, tone, memories, and relationship with Tarun (KRAIT)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "cli": "node src/cli.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "keywords": ["ai", "persona", "bhumika", "whatsapp-bot", "chat-assistant"],
+  "author": "KRAIT",
+  "license": "ISC"
+}
