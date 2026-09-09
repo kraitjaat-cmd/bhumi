@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BhumiAI 🌿 — Bohemian Aesthetic ChatGPT for Bhumika</title>
+  <title>BhumiAI 🌿 — Bohemian Aesthetic ChatGPT</title>
 
   <!-- Google Fonts: Editorial Serif Fraunces & Modern Sans Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   🌿 BHUMIAI — BOHEMIAN AESTHETIC CHATGPT DESIGN SYSTEM
+   🌿 BHUMIAI — CLEAN MINIMALIST BOHEMIAN CHATGPT DESIGN SYSTEM
    ========================================================================== */
 
 :root {
@@ -145,7 +145,7 @@ html, body {
 }
 
 /* ==========================================================================
-   1. AESTHETIC SIDEBAR (CHATGPT STYLE)
+   1. CLEAN MINIMALIST SIDEBAR
    ========================================================================== */
 .aesthetic-sidebar {
   width: 275px;
@@ -252,7 +252,7 @@ html, body {
   height: 16px;
 }
 
-/* Sidebar Scrollable Topics */
+/* Sidebar Scrollable History */
 .sidebar-scroll {
   flex: 1;
   overflow-y: auto;
@@ -310,11 +310,6 @@ html, body {
   background: var(--terracotta-soft);
   color: var(--terracotta);
   font-weight: 600;
-}
-
-.topic-item.rage-topic:hover {
-  background: var(--rage-bg);
-  color: var(--rage-crimson);
 }
 
 .topic-icon {
@@ -530,20 +525,22 @@ html, body {
   gap: 8px;
 }
 
-.header-action-btn {
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
+.header-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.header-action-btn:hover {
+.header-icon-btn:hover {
   background: var(--terracotta-soft);
   color: var(--terracotta);
   border-color: var(--terracotta);
@@ -984,10 +981,9 @@ body.dark-theme .chat-input-wrapper {
 }
 
 /* ==========================================================================
-   4. SLIDE-OVER DRAWERS (SOCIAL CIRCLE & ABOUT)
+   4. SIDEBAR BACKDROP & RESPONSIVENESS
    ========================================================================== */
-.sidebar-backdrop,
-.drawer-overlay {
+.sidebar-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -995,263 +991,18 @@ body.dark-theme .chat-input-wrapper {
   height: 100vh;
   background: rgba(20, 16, 14, 0.45);
   backdrop-filter: blur(4px);
-  z-index: 90;
+  z-index: 40;
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-smooth);
 }
 
-.sidebar-backdrop.active,
-.drawer-overlay.active {
+.sidebar-backdrop.active {
   opacity: 1;
   visibility: visible;
 }
 
-.slide-drawer {
-  position: fixed;
-  top: 0;
-  right: -460px;
-  width: 440px;
-  max-width: 90vw;
-  height: 100vh;
-  background: var(--bg-surface);
-  border-left: 1px solid var(--border-subtle);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
-  transition: right var(--transition-smooth);
-}
-
-.slide-drawer.open {
-  right: 0;
-}
-
-.drawer-header {
-  padding: 20px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.drawer-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.drawer-emoji {
-  font-size: 1.4rem;
-}
-
-.drawer-title h2 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: var(--text-primary);
-}
-
-.drawer-close-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--text-muted);
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  transition: color var(--transition-fast);
-}
-
-.drawer-close-btn:hover {
-  color: var(--text-primary);
-}
-
-.drawer-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px 22px;
-}
-
-.drawer-desc {
-  font-size: 0.86rem;
-  color: var(--text-secondary);
-  margin-bottom: 18px;
-}
-
-/* Cards List in Drawer */
-.drawer-cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.drawer-person-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.drawer-person-card.bestie {
-  border-color: var(--ochre);
-  background: var(--bg-surface-elevated);
-}
-
-.drawer-person-card.nemesis {
-  border-color: var(--rage-border);
-  background: var(--rage-bg);
-}
-
-.person-card-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.person-avatar-circle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--bg-surface-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.person-avatar-circle.rage-avatar {
-  background: var(--rage-bg);
-}
-
-.person-title-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.person-title-group h3 {
-  font-size: 0.94rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.person-tag-pill {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--sage);
-  background: var(--sage-soft);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  display: inline-block;
-  align-self: flex-start;
-}
-
-.person-tag-pill.bestie {
-  color: var(--ochre);
-  background: var(--ochre-soft);
-}
-
-.person-tag-pill.nemesis {
-  color: var(--rage-crimson);
-  background: rgba(201, 42, 42, 0.15);
-}
-
-.person-bio {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-}
-
-.person-quote {
-  font-size: 0.78rem;
-  font-style: italic;
-  color: var(--terracotta);
-  background: var(--terracotta-soft);
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  margin-top: 4px;
-}
-
-.person-quote.rage-quote {
-  color: var(--rage-crimson);
-  background: rgba(201, 42, 42, 0.12);
-  font-weight: 600;
-}
-
-/* About Drawer Content */
-.about-hero-box {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  background: var(--card-bg);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin-bottom: 20px;
-}
-
-.about-hero-art {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: var(--terracotta-soft);
-  border: 2px solid var(--terracotta);
-  padding: 4px;
-  flex-shrink: 0;
-}
-
-.about-hero-meta h3 {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.about-hero-meta p {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-.about-grid-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.about-section-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-}
-
-.about-section-card.rage-border {
-  border-color: var(--rage-border);
-  background: var(--rage-bg);
-}
-
-.about-section-card h4 {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.about-section-card p {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-}
-
-/* ==========================================================================
-   5. RAGE SHAKE ANIMATION EFFECT (SHIVANG FURY)
-   ========================================================================== */
+/* Rage Shake Animation */
 .rage-mode {
   animation: visualRageShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
@@ -1263,9 +1014,6 @@ body.dark-theme .chat-input-wrapper {
   40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
 @media (max-width: 860px) {
   .aesthetic-sidebar {
     position: fixed;
@@ -1300,7 +1048,7 @@ body.dark-theme .chat-input-wrapper {
 <body>
 
   <!-- =========================================================
-       🌿 AESTHETIC CHATGPT APP LAYOUT
+       🌿 CLEAN & MINIMALIST BOHEMIAN CHATGPT LAYOUT
        ========================================================= -->
   <div class="chatgpt-layout" id="appLayout">
 
@@ -1308,7 +1056,7 @@ body.dark-theme .chat-input-wrapper {
     <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
     <!-- =======================================================
-         1. AESTHETIC SIDEBAR (CHATGPT-STYLE)
+         1. CLEAN MINIMALIST SIDEBAR
          ======================================================= -->
     <aside class="aesthetic-sidebar" id="sidebar">
 
@@ -1341,72 +1089,14 @@ body.dark-theme .chat-input-wrapper {
         </button>
       </div>
 
-      <!-- Quick Topic Shortcuts / History -->
+      <!-- Clean Recent Conversations List (ChatGPT-style) -->
       <div class="sidebar-scroll">
-        <div class="sidebar-section-label">LORE & TOPICS</div>
+        <div class="sidebar-section-label">RECENT</div>
         <ul class="sidebar-topic-list">
           <li>
-            <button class="topic-item" data-prompt="Badminton tonight at 10 on the court?">
-              <span class="topic-icon">🏸</span>
-              <span class="topic-text">10 PM Badminton Match</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="Gogu Bhai Late Reply Wale ka message aaya kya?">
-              <span class="topic-icon">🐱</span>
-              <span class="topic-text">Gogu Bhai (Meowlarity)</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="Aradhya chalti firti tequila h kya?">
-              <span class="topic-icon">🍸</span>
-              <span class="topic-text">Aradhya Tequila & Reels</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item rage-topic" data-prompt="Aaj wo BTech 2nd year wala Shivang mila tha">
-              <span class="topic-icon">⚠️</span>
-              <span class="topic-text">Shivang Rage Trigger</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="Would you choose 10 million dollars or a fun hangout with me?">
-              <span class="topic-icon">💰</span>
-              <span class="topic-text">10M$ vs Hangout</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="Hostel ke paani se curly baal kharab ho rhe h kya?">
-              <span class="topic-icon">👩‍🦱</span>
-              <span class="topic-text">Wild Curls & Hostel Water</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="Walk par chalte h 11 baje lawn me">
-              <span class="topic-icon">🌙</span>
-              <span class="topic-text">11 PM Lawn Walk</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" data-prompt="krait-mafia.github.io wali website Aradhya ko dikha di?">
-              <span class="topic-icon">💻</span>
-              <span class="topic-text">krait-mafia Website</span>
-            </button>
-          </li>
-        </ul>
-
-        <div class="sidebar-section-label" style="margin-top: 20px;">EXPLORE LORE</div>
-        <ul class="sidebar-topic-list">
-          <li>
-            <button class="topic-item" onclick="openDrawer('circle')">
-              <span class="topic-icon">👯‍♀️</span>
-              <span class="topic-text">Social Circle & Gang</span>
-            </button>
-          </li>
-          <li>
-            <button class="topic-item" onclick="openDrawer('about')">
-              <span class="topic-icon">📖</span>
-              <span class="topic-text">About Bhumika & Story</span>
+            <button class="topic-item active" onclick="resetChatConversation()">
+              <span class="topic-icon">🌿</span>
+              <span class="topic-text">Chat with Bhumi</span>
             </button>
           </li>
         </ul>
@@ -1447,9 +1137,6 @@ body.dark-theme .chat-input-wrapper {
           <div class="model-pill">
             <span class="model-name">BhumiAI</span>
             <span class="model-version">Bohemian 4.5</span>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
           </div>
         </div>
 
@@ -1461,12 +1148,8 @@ body.dark-theme .chat-input-wrapper {
         </div>
 
         <div class="header-right">
-          <button class="header-action-btn" onclick="openDrawer('circle')" title="View Social Circle">
-            <span>Social Circle</span>
-          </button>
-          <button class="header-action-btn" onclick="openDrawer('about')" title="View About Story">
-            <span>About</span>
-          </button>
+          <button class="header-icon-btn" id="headerThemeBtn" onclick="toggleTheme()" title="Toggle Theme">🌓</button>
+          <button class="header-icon-btn" id="headerClearBtn" onclick="clearCurrentChat()" title="Clear Chat">🧹</button>
         </div>
       </header>
 
@@ -1501,9 +1184,9 @@ body.dark-theme .chat-input-wrapper {
             </div>
 
             <h1 class="landing-title">What's on your mind, Troonnn? ✨</h1>
-            <p class="landing-subtitle">Integrated BS-MS Chemistry Scholar at SAU Delhi • Wild Bouncy Curls • Certified Shivang Hater</p>
+            <p class="landing-subtitle">Integrated BS-MS Chemistry Scholar at SAU Delhi • Wild Bouncy Curls</p>
 
-            <!-- ChatGPT-style Prompt Cards Grid -->
+            <!-- Clean Minimalist Prompt Cards Grid -->
             <div class="prompt-cards-grid">
               <div class="prompt-card" data-prompt="Badminton tonight at 10 on the court?">
                 <div class="card-icon">🏸</div>
@@ -1513,7 +1196,7 @@ body.dark-theme .chat-input-wrapper {
               <div class="prompt-card" data-prompt="Meowlarity or Molarity in Chemistry?">
                 <div class="card-icon">🐱</div>
                 <div class="card-title">Ask about Meowlarity</div>
-                <div class="card-desc">Chemistry cat jokes with Gogu Bhai (Akanksha)</div>
+                <div class="card-desc">Chemistry cat jokes with Gogu Bhai</div>
               </div>
               <div class="prompt-card rage-card" data-prompt="Aaj wo BTech 2nd year wala Shivang mila tha">
                 <div class="card-icon">⚠️</div>
@@ -1598,7 +1281,7 @@ body.dark-theme .chat-input-wrapper {
                 class="capsule-textarea"
                 id="userInput"
                 rows="1"
-                placeholder="Message Bhumi (say anything, mention Gogu Bhai, Aradhya, or Shivang)..."
+                placeholder="Message Bhumi..."
                 autocomplete="off"
               ></textarea>
             </div>
@@ -1618,133 +1301,6 @@ body.dark-theme .chat-input-wrapper {
       </div>
 
     </main>
-
-    <!-- =======================================================
-         3. SLIDE-OVER DRAWERS (SOCIAL CIRCLE & ABOUT)
-         ======================================================= -->
-    <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
-
-    <!-- DRAWER: SOCIAL CIRCLE -->
-    <aside class="slide-drawer" id="drawerCircle">
-      <div class="drawer-header">
-        <div class="drawer-title">
-          <span class="drawer-emoji">👯‍♀️</span>
-          <h2>Social Circle & Lore</h2>
-        </div>
-        <button class="drawer-close-btn" onclick="closeDrawer()">&times;</button>
-      </div>
-
-      <div class="drawer-body">
-        <p class="drawer-desc">People in Bhumika's academic universe at South Asian University (SAU Delhi):</p>
-
-        <div class="drawer-cards-list">
-          <!-- Troonnn -->
-          <div class="drawer-person-card bestie">
-            <div class="person-card-top">
-              <div class="person-avatar-circle">🎨</div>
-              <div class="person-title-group">
-                <h3>Troonnn (Tarun Saroha / KRAIT)</h3>
-                <span class="person-tag-pill bestie">Best Friend</span>
-              </div>
-            </div>
-            <p class="person-bio">Her closest confidant, editor, and 10 PM badminton rival. Creator of <code>krait-mafia.github.io/Tarun/</code> and late-night lawn walk buddy.</p>
-            <div class="person-quote">"Oye Troonnn! Apna extra 2 gram dimag yha mat lagao please 😌"</div>
-          </div>
-
-          <!-- Gogu Bhai (Akanksha) -->
-          <div class="drawer-person-card">
-            <div class="person-card-top">
-              <div class="person-avatar-circle">🐱</div>
-              <div class="person-title-group">
-                <h3>Akanksha Sinha (Gogu Bhai)</h3>
-                <span class="person-tag-pill">Hostel Bestie & CR</span>
-              </div>
-            </div>
-            <p class="person-bio">Hostel roomie & Section B CR. Known for late replies (3 days), iPad notes, 'Meowlarity' chemistry jokes, and late-night room Maggi.</p>
-            <div class="person-quote">"Gogu Bhai Late Reply Wale abhi 2 ghante baad reply karegi Troonnn... 🥱"</div>
-          </div>
-
-          <!-- Aradhya -->
-          <div class="drawer-person-card">
-            <div class="person-card-top">
-              <div class="person-avatar-circle">✨</div>
-              <div class="person-title-group">
-                <h3>Aradhya Gupta (aradhya Yeah)</h3>
-                <span class="person-tag-pill">Fest Partner</span>
-              </div>
-            </div>
-            <p class="person-bio">Freshers night, reels, and fest collaborator. Teased as 'chalti firti tequila', 14.5 marks in computer test, and dance jokes.</p>
-            <div class="person-quote">"Aradhya to 'no nashe' bolti h Troonnn aur tu usko tequila bana rha tha! 🍸😂"</div>
-          </div>
-
-          <!-- Shivang (Nemesis) -->
-          <div class="drawer-person-card nemesis">
-            <div class="person-card-top">
-              <div class="person-avatar-circle rage-avatar">🤮</div>
-              <div class="person-title-group">
-                <h3 style="color: var(--rage-crimson);">Shivang (B.Tech 2nd Year)</h3>
-                <span class="person-tag-pill nemesis">Strictly Hated</span>
-              </div>
-            </div>
-            <p class="person-bio">Arrogant, fake player attitude ('3 actually 🤡'), cringe bragging, and strictly despised nemesis. Mentioning him triggers explosive fury.</p>
-            <div class="person-quote rage-quote">"US GADHE SHIVANG KA NAAM KAISE LIYA TUNE MERE SAMNE TROONNN?! 🤬🤮"</div>
-          </div>
-        </div>
-      </div>
-    </aside>
-
-    <!-- DRAWER: ABOUT BHUMI -->
-    <aside class="slide-drawer" id="drawerAbout">
-      <div class="drawer-header">
-        <div class="drawer-title">
-          <span class="drawer-emoji">🌿</span>
-          <h2>About Bhumika Tanwar</h2>
-        </div>
-        <button class="drawer-close-btn" onclick="closeDrawer()">&times;</button>
-      </div>
-
-      <div class="drawer-body">
-        <div class="about-hero-box">
-          <div class="about-hero-art">
-            <svg class="hero-avatar-svg" viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="50" r="45" fill="#E8B896"/>
-              <circle cx="25" cy="40" r="18" fill="#2E1C14"/>
-              <circle cx="75" cy="40" r="18" fill="#2E1C14"/>
-              <circle cx="50" cy="25" r="20" fill="#3D261C"/>
-              <path d="M38 52 Q42 49 46 52" stroke="#2E1C14" stroke-width="3" stroke-linecap="round"/>
-              <path d="M54 52 Q58 49 62 52" stroke="#2E1C14" stroke-width="3" stroke-linecap="round"/>
-              <path d="M45 64 Q50 68 55 64" stroke="#2E1C14" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="about-hero-meta">
-            <h3>Bhumika Tanwar</h3>
-            <p>Integrated BS-MS Chemical Sciences Scholar at South Asian University (SAU), New Delhi. Defined by wild voluminous curly hair, late-night tea walks, and sharp, humorous Hinglish banter.</p>
-          </div>
-        </div>
-
-        <div class="about-grid-sections">
-          <div class="about-section-card">
-            <h4>👩‍🦱 Wild Voluminous Curls</h4>
-            <p>Her signature bouncy curls are her pride! Though Delhi's climate and hostel hard water constantly test her patience with frizz, detangling, and leave-in serums.</p>
-          </div>
-
-          <div class="about-section-card">
-            <h4>☕ Best Friend: Troonnn</h4>
-            <p>Non-stop roasts, mutual teasing, 10 PM badminton matches, 11 PM lawn walks, and existential college debates define their lifelong bond.</p>
-          </div>
-
-          <div class="about-section-card">
-            <h4>🧪 Chemistry & Europe Aspirations</h4>
-            <p>Fascinated by Organic and Inorganic synthesis, working towards research internships and PhDs in Germany, Norway, or Switzerland.</p>
-          </div>
-
-          <div class="about-section-card rage-border">
-            <h4 style="color: var(--rage-crimson);">🤬 Pure Rage: Shivang</h4>
-            <p>Zero tolerance for Shivang from B.Tech 2nd year. Anyone mentioning his name gets instantly roasted into oblivion with explosive disgust.</p>
-          </div>
-        </div>
-      </div>
-    </aside>
 
   </div>
 
@@ -1769,14 +1325,11 @@ body.dark-theme .chat-input-wrapper {
     const themeBtn = document.getElementById('themeBtn');
     const clearBtn = document.getElementById('clearBtn');
     const newChatBtn = document.getElementById('newChatBtn');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-    const drawerCircle = document.getElementById('drawerCircle');
-    const drawerAbout = document.getElementById('drawerAbout');
 
     const recentReplies = [];
     const maxRecent = 120;
 
-    // Sidebar & Drawer Toggles
+    // Sidebar & Theme Toggles
     function toggleSidebar() {
       if (sidebar) {
         sidebar.classList.toggle('open');
@@ -1791,28 +1344,25 @@ body.dark-theme .chat-input-wrapper {
       }
     }
 
-    function openDrawer(drawerId) {
-      closeDrawer();
-      closeSidebar();
-      if (drawerId === 'circle' && drawerCircle) {
-        drawerCircle.classList.add('open');
-        if (drawerOverlay) drawerOverlay.classList.add('active');
-      } else if (drawerId === 'about' && drawerAbout) {
-        drawerAbout.classList.add('open');
-        if (drawerOverlay) drawerOverlay.classList.add('active');
-      }
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      const label = isDark ? '☀️' : '🌓';
+      if (themeBtn) themeBtn.textContent = label;
+      const headerTheme = document.getElementById('headerThemeBtn');
+      if (headerTheme) headerTheme.textContent = label;
     }
 
-    function closeDrawer() {
-      if (drawerCircle) drawerCircle.classList.remove('open');
-      if (drawerAbout) drawerAbout.classList.remove('open');
-      if (drawerOverlay) drawerOverlay.classList.remove('active');
+    function clearCurrentChat() {
+      if (confirm('Clear current conversation?')) {
+        resetChatConversation();
+      }
     }
 
     window.toggleSidebar = toggleSidebar;
     window.closeSidebar = closeSidebar;
-    window.openDrawer = openDrawer;
-    window.closeDrawer = closeDrawer;
+    window.toggleTheme = toggleTheme;
+    window.clearCurrentChat = clearCurrentChat;
 
     // Time helper
     function getFormattedTime() {
@@ -2115,14 +1665,6 @@ body.dark-theme .chat-input-wrapper {
       });
     });
 
-    // Sidebar Topic List items
-    document.querySelectorAll('.topic-item[data-prompt]').forEach(item => {
-      item.addEventListener('click', () => {
-        const prompt = item.getAttribute('data-prompt');
-        if (prompt) handleSend(prompt);
-      });
-    });
-
     // Starter Quick Chips
     document.querySelectorAll('.quick-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -2165,8 +1707,9 @@ body.dark-theme .chat-input-wrapper {
       }
       appLayout.classList.remove('rage-mode');
       closeSidebar();
-      closeDrawer();
     }
+
+    window.resetChatConversation = resetChatConversation;
 
     if (newChatBtn) newChatBtn.addEventListener('click', resetChatConversation);
     if (clearBtn) {
@@ -2175,14 +1718,7 @@ body.dark-theme .chat-input-wrapper {
       });
     }
 
-    // Theme Switcher (Boho Light / Dark)
-    if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        themeBtn.textContent = isDark ? '☀️' : '🌓';
-      });
-    }
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
   </script>
 
 </body>
